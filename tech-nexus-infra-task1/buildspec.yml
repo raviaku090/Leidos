@@ -14,7 +14,7 @@ phases:
   build:
     commands:
       - echo "Initializing Terraform..."
-      - cd tech-nexus-infra/envs/dev
+      - cd tech-nexus-infra-task1/envs/dev
       - terraform init
       - echo "Applying Terraform..."
       - terraform apply -auto-approve
