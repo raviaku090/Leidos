@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+  pre_build:
+    commands:
+      - echo "Installing Terraform..."
+      - curl -O https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip
+      - unzip terraform_0.15.0_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+      - terraform --version
+  build:
+    commands:
+      - echo "Initializing Terraform..."
+      - cd tech-nexus-infra/envs/dev
+      - terraform init
+      - echo "Applying Terraform..."
+      - terraform apply -auto-approve
